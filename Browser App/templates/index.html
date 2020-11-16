@@ -12,13 +12,16 @@
 <div class="center container">
     <h1>Land Reg Values</h1>
     <h5>(1999, 1998, 2020)</h5>
+    {% for msg in get_flashed_messages() %}
+     <div class="card-panel red lighten-2">{{ msg }}</div>
+    {% endfor %}
     <div class="row form_container">
         <form method="POST" class="col s12">
             {{ form.hidden_tag() }}
             <div class="row">
                 <div class="input-field col s6 offset-s3">
                     {{ form.postcode(class="center-align") }}
-                    {{ form.submit(class="waves-effect waves-light btn search_button") }}
+                    {{ form.submit(class="btn search_button") }}
                 <p style="color:rgb(222, 222, 222)">Errors? Speak to Paul Wilson</p>
                 </div>
             </div>

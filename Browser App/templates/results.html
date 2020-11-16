@@ -2,29 +2,49 @@
 <html>
 <head>
     <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+    />
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="static/css/materialize.min.css" media="screen,projection"/>
+    <link
+            type="text/css"
+            rel="stylesheet"
+            href="static/css/materialize.min.css"
+            media="screen,projection"
+    />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
-<div class="center">
-    <h1>Land Reg Values</h1>
-    <h5>(1999, 1998, 2020) - Results</h5>
-    <a href="{{url_for('index')}}">Go back</a>
+<div class="row center">
+    <div class="col s3">
+        {{ chart_scatter }}
+    </div>
+    <div class="col s9">
+        {{ chart_box }}
+    </div>
 </div>
-<div class="center">
-    <h1>All Results</h1>
-    <button class="btn" id="btn_copy">Download all tables to CSV</button>
-    {{ df }}
+<div class="row">
+    <div class="center">
+        <a style="font-size:24px" href="{{url_for('index')}}">Go back</a>
+        <br>
+        <button class="btn" id="btn_copy">Download all tables to CSV</button>
+        <h1>Statistics - Mean & Median</h1>
+        {{ df_stats_mu }}
+    </div>
+    <div class="center">
+        <h1>Statistics - Quantiles</h1>
+        <p>This table shows us the 25th, 50th, and 75th quantiles</p>
+        {{ df_quantile_mu }}
+    </div>
+    <div class="center">
+        <h1>All Results</h1>
+        {{ df_filt_mu }}
+    </div>
 </div>
-<div class="center">
-    <h1>Statistics</h1>
-    {{ df_stats }}
-</div>
-<body>
 
+<body>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="static/js/materialize.min.js"></script>
 <script type="text/javascript" src="static/js/custom.js"></script>

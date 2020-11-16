@@ -1,6 +1,8 @@
 const formPostcode = document.querySelector('form');
 
 function showLoading(e){
+    // deactivate button so it can't be repressed
+    document.querySelector('.search_button').className = 'btn search_button disabled';
     // create the loading text elements
     const div = document.createElement('div');
     const newTextNode = document.createTextNode('Searching. Estimated 5-10 seconds...');
